@@ -170,7 +170,7 @@ def gameloop():
                     pygame.mixer.Sound("gameover.mp3").play()
              
 
-        # Call plot_snake here
+        
         plot_snake(game_window, black, snk_list, snake_sizex, snake_sizey)
 
         # GAME OVER
@@ -194,6 +194,6 @@ def gameloop():
         clock.tick(fps)
 
     pygame.quit()
-    sys.exit()  
+    sys.exit()
 
 welcome()

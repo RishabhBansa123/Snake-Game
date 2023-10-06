@@ -68,9 +68,10 @@ def gameloop():
     # game-specific variables
     exit_game = False
     game_over = False
-    init_velocity = 5
+    init_velocity = 3
     velocity_x = 0
     velocity_y = 0
+    velocity_increse=.5 
     snake_x = 45
     snake_y = 45
     snake_sizex = 30 
@@ -120,6 +121,9 @@ def gameloop():
                     # CHEAT CODE  
                     if event.key == pygame.K_m:
                         score += 10
+
+
+                        
         
         if not game_over:
             snake_x += velocity_x  
@@ -133,6 +137,9 @@ def gameloop():
                 snk_length += 5
                 if score > int(hiscore):
                     hiscore = score
+
+                init_velocity+= velocity_increse
+                   
 
             game_window.fill(white)
             game_window.blit(bgimage,(0,0))
@@ -163,7 +170,7 @@ def gameloop():
                     pygame.mixer.Sound("gameover.mp3").play()
              
 
-        # Call plot_snake here
+        
         plot_snake(game_window, black, snk_list, snake_sizex, snake_sizey)
 
         # GAME OVER
@@ -187,6 +194,6 @@ def gameloop():
         clock.tick(fps)
 
     pygame.quit()
-    sys.exit()  
+    sys.exit()
 
 welcome()
